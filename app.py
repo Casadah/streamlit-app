@@ -37,14 +37,14 @@ st.write("Enter the Working Conditions to Predict Burnout Rate")
 #Input fields for the burnout rate prediction
 gender = st.selectbox("Gender of the Employee",
                       ["Male", "Female"])
-company_type = st.selectbox("The type of company (Either Product or Services)",
+company_type = st.selectbox("The type of Company (Either Product or Services)",
                             ["Product", "Service"])
-wfh = st.selectbox("Whether or the Employee has option of working from home",
+wfh = st.selectbox("Whether or not the Employee has option of working from home",
                    ["Yes", "No"])
 designation = st.number_input("Designation (Role and Seniority Level of Employee)",
                               min_value=0, max_value=5, step=1
                               )
-work_hours = st.number_input("Work Hours (Number of hour the Employee Works)",
+work_hours = st.number_input("Work Hours (Number of hours the Employee Works)",
                                       min_value=0, max_value=10, step=1
                                     )
 fatigue_score = st.slider("Fatigue Score",
@@ -91,4 +91,5 @@ if st.button("Predict Burn Rate"):
     prediction = model.predict(data)
 
     #Display the prediction
+
     st.success(f"The Predicted Burn Rate for this Employee is: {prediction[0]:,.2f}")
